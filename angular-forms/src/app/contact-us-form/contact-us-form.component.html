@@ -1,0 +1,56 @@
+{{diagnostic}}
+<div class ="container">
+   <h1>Contact US</h1>
+   <form  #contactUsForm="ngForm">
+   <table>
+      <tr>
+         <td valign="top">
+            <label for="name">Name *</label>
+         </td>
+         <td valign="top" align="left">
+            <div class="form-group">
+               <input  type="text" id="name" maxlength="50" size="30" class="form-control" 
+               required 
+               [(ngModel)] = "model.name" name="name" #name="ngModel">
+               <div [hidden]="name.valid"
+                  class="alert alert-danger">
+                  Name is required 
+               </div>
+            </div>
+         </td>
+      </tr>
+      <tr>
+         <td valign="top">
+            <label for="email">Email Address *</label>
+         </td>
+         <td valign="top" align="left">
+            <input   type="text" id="emailAddress" maxlength="80" size="30" class="form-control"
+            required 
+            [(ngModel)] = "model.emailAddress" name="emailAddress" email #emailAddress="ngModel">
+            <div  *ngIf="emailAddress.errors?.email">
+               EmailAddress is not valid
+            </div>
+         </td>
+      </tr>
+      <tr >
+         <td valign="top">
+            <label for="comments" >Comments/Questions *</label>
+         </td>
+         <td valign="top" align="left">
+            <textarea rows = "5" cols="50" ng-model="myTextarea" id="comments" [(ngModel)] = "model.comments" name="comments" 
+            required 
+            #comments="ngModel"></textarea>
+            <div [hidden]="comments.valid"
+               class="alert alert-danger">
+               Comments is required 
+            </div>
+         </td>
+      </tr>
+      <tr>
+         <td colspan="2" style="text-align:center">
+            <button class="btn btn-success"  (click)="newContactUs(model);"> Submit</button>
+         </td>
+      </tr>
+   </table>
+   </form>
+</div>
