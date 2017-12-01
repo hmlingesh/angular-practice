@@ -9,9 +9,11 @@ import { ContactUs } from '../contact-us'
 })
 export class ContactUsFormComponent implements OnInit {
 
+  contact_us ='Contact US';
+
   constructor() { }
 
-  model = new ContactUs("Lingesh", "ling@gmail.com", "Success");
+  model: ContactUs = {};
 
   submitted = false;
 
